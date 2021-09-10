@@ -1,0 +1,7 @@
+{
+  "name": "storage-image-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
