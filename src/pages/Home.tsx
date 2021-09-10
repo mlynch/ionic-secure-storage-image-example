@@ -49,6 +49,8 @@ const Home: React.FC = () => {
       return;
     }
 
+    // Load an image from a server, convert it to base64, insert it into
+    // the database, then select it back and display it
     async function loadImage() {
       var imgUrl = `https://i.imgur.com/jngirs1.jpeg`;
       const res = await fetch(imgUrl);
@@ -74,9 +76,8 @@ const Home: React.FC = () => {
               "SELECT data FROM image LIMIT 1",
               [],
               (tx: any, result: any) => {
-                console.log("Selected", result.rowsAffected);
+                // This will return the base64 encoded image data
                 const d = result.rows.item(0);
-                console.log("Got data", d);
                 setImageData(d.data);
               }
             );
